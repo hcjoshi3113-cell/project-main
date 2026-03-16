@@ -20,8 +20,7 @@ function NavScrollExample() {
             </Nav.Link>
             <Nav.Link as={NavLink} to="trips">Trips</Nav.Link>
             <Nav.Link as={NavLink} to="about" >About</Nav.Link>
-            
-            <Nav.Link href="#">Login</Nav.Link>
+            <Nav.Link as={NavLink} to="auth" >Login</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

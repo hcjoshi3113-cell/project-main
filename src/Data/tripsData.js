@@ -512,3 +512,4 @@ export const trips = [
   bestTimeToVisit: "October to March",
 }
 ];
+
