@@ -1,6 +1,8 @@
 import { Container, Row, Col, Image, Card, Button, Badge, ListGroup, Accordion } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
-import { trips } from "../../Data/tripsData";
+import { trips } from "../../data/tripsData";
+import { useContext } from "react";
+import { authContext } from "../context/Context";
 
 const TripDetail = () => {
   const { id } = useParams();
@@ -9,6 +11,31 @@ const TripDetail = () => {
 
 
   const navigate = useNavigate()
+
+
+  const { user } = useContext(authContext)
+
+  console.log("check-user", user)
+
+  const handleBook = () => {
+
+    try {
+
+
+      if (!user) {
+
+        navigate("/auth")
+
+      } else {
+        navigate(`/booking/${id}`)
+      }
+
+
+    } catch (error) {
+
+    }
+  }
+
 
   return (
     <>
@@ -87,7 +114,7 @@ const TripDetail = () => {
                   <h5>Inclusion</h5>
                   <ListGroup className="mt-2" variant="flush" >
                     {trip.inclusions.map((inclusions) => (
-                      <ListGroup.Item> ✔️{inclusions} </ListGroup.Item>
+                      <ListGroup.Item> ✅{inclusions} </ListGroup.Item>
                     ))}
                   </ListGroup>
                 </Card>
@@ -98,7 +125,7 @@ const TripDetail = () => {
                   <h5>exclusions</h5>
                   <ListGroup className="mt-2" variant="flush" >
                     {trip.exclusions.map((exclusions) => (
-                      <ListGroup.Item> ❌{exclusions} </ListGroup.Item>
+                      <ListGroup.Item> ✖️{exclusions} </ListGroup.Item>
                     ))}
                   </ListGroup>
                 </Card></Col>
@@ -113,17 +140,17 @@ const TripDetail = () => {
               </Col>
             </Row>
 
-            <Button onClick={() => navigate(-1)} className="mt-3" variant="primary"> ⬅️ Back to trips</Button>
+            <Button onClick={() => navigate(-1)} className="mt-3" variant="outline-secondary"> 🔙 Back to trips</Button>
 
 
           </Col>
 
           <Col lg={4}  >
-            <Card className="p-3 shadow sticky-top"  style={{top:"50px"}}>
+            <Card className="p-3 shadow sticky-top" style={{ top: "50px" }}>
               <h3>₹{trip.price}</h3>
               <h6>{trip.duration} - {trip.difficulty}</h6>
               <div className="d-grid gap-2">
-                <Button variant="primary"  >
+                <Button variant="primary" onClick={handleBook}   >
                   Book now
                 </Button>
 

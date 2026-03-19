@@ -3,11 +3,12 @@ import { Image } from "react-bootstrap";
 
 function CarouselFadeExample() {
   return (
-    <Carousel fade>xuu
+    <Carousel fade>
       <Carousel.Item style={{ height: "95vh" }}>
         <video
           autoPlay
           muted
+          loop
           style={{ objectFit: "cover", height: "100%", width: "100%" }}
         >
           <source src="https://www.pexels.com/download/video/33834285/"></source>

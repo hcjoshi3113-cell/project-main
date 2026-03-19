@@ -1,5 +1,5 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { trips } from "../../Data/tripsData"
+import { trips } from "../../Data/tripsData";
 import { useNavigate } from "react-router-dom";
 
 const Trips = () => {
