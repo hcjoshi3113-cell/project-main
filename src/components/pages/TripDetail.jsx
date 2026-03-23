@@ -1,6 +1,6 @@
 import { Container, Row, Col, Image, Card, Button, Badge, ListGroup, Accordion } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
-import { trips } from "../../data/tripsData";
+import { trips } from "../../Data/tripsData";
 import { useContext } from "react";
 import { authContext } from "../context/Context";
 
@@ -35,7 +35,22 @@ const TripDetail = () => {
 
     }
   }
+    if (!trip) {
+    return (
+      <Container>
+        <Row>
+          <Col>
+            <Card className="shadow mt-5">
+              <Card.Body>
+                <Card.Title>Trips Detail not Found</Card.Title>
+                <Button variant="primary" onClick={() => navigate(-1)} >Back To Trips</Button>
+              </Card.Body>
+            </Card></Col>
+        </Row>
+      </Container>
+    )
 
+  }
 
   return (
     <>

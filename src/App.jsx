@@ -6,12 +6,15 @@ import Auth from "./components/auth/Auth";
 import About from "./components/ui/About";
 import Home from "./components/pages/Home";
 import Booking from "./components/pages/Booking";
+import ProtectedRoutes from "./routes/ProtectedRoutes";
+import Error from "./components/pages/Error";
 
 const App = () => {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout />,
+      errorElement:<Error/>,
       children: [
         {
           index: true,
@@ -32,6 +35,14 @@ const App = () => {
         {
           path:"/auth",
           element:<Auth/>
+        },
+        {
+          element: <ProtectedRoutes />,
+          children: [{
+
+            path: "/booking/:id",
+            element: <Booking />
+        }]
         }
       ],
     },

@@ -47,7 +47,8 @@ function NavScrollExample() {
             <Nav.Link as={NavLink} to="about" >About</Nav.Link>
 
             {
-              user ? <Button variant="outline-dark" onClick={handleLogout}  >logout</Button> : <Button variant="outline-secondary" onClick={handleLogin} >Log in</Button>
+              user ? <Button variant="outline-dark
+              " onClick={handleLogout}  >logout</Button> : <Button variant="outline-secondary" onClick={handleLogin} >Log in</Button>
             }
           </Nav>
         </Navbar.Collapse>

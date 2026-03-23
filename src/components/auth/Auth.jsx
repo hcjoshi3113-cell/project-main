@@ -123,7 +123,7 @@ const Auth = () => {
                             </Button>
 
                             <Button
-                                variant="danger"
+                                variant="outline-secondary:"
                                 className="w-100 mb-3"
                                 onClick={handleGoogleLogin}
 
