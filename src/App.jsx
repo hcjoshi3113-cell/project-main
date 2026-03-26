@@ -8,6 +8,7 @@ import Home from "./components/pages/Home";
 import Booking from "./components/pages/Booking";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
 import Error from "./components/pages/Error";
+import MyBookings from "./components/pages/MyBookings";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const App = () => {
 
             path: "/booking/:id",
             element: <Booking />
+        },
+        {
+            path: "/myBookings",
+            element: <MyBookings />
         }]
         }
       ],
